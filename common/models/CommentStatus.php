@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "comment_status".
+ * This is the model class for table "comment-status".
  *
  * @property int $id
  * @property string $name 名称

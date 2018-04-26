@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "post".
@@ -24,6 +26,19 @@ class Post extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'post';
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+            ],
+        ];
     }
 
     /**
@@ -49,7 +64,7 @@ class Post extends \yii\db\ActiveRecord
             'content' => '文章内容',
             'tags' => '标签',
             'status' => '状态',
-            'created_at' => '创建事件',
+            'created_at' => '创建时间',
             'updated_at' => '修改时间',
             'author_id' => '作者id',
         ];

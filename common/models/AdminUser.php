@@ -5,7 +5,7 @@ namespace common\models;
 use Yii;
 
 /**
- * This is the model class for table "admin_user".
+ * This is the model class for table "admin-user".
  *
  * @property int $id
  * @property string $username 用户名
@@ -56,5 +56,15 @@ class AdminUser extends \yii\db\ActiveRecord
     public function getPosts()
     {
         return $this->hasMany(Post::className(), ['author_id' => 'id']);
+    }
+
+    public static function getAllAuthors()
+    {
+        $allAuthors = self::find()
+            ->select(['id', 'username'])
+            ->indexBy('id')
+            ->column();
+
+        return $allAuthors;
     }
 }

@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Post */
+/* @var $model common\models\User */
 
-$this->title = '创建新文章';
-$this->params['breadcrumbs'][] = ['label' => '文章管理', 'url' => ['index']];
+$this->title = 'Create User';
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="post-create">
+<div class="user-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
